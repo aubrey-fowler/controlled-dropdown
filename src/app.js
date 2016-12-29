@@ -1,7 +1,10 @@
+/* @flow */
+
 import React from 'react';
 import { render } from 'react-dom';
+import DropdownWidget from './dropdown-widget';
 
 render(
-	<h1>Hello World!</h1>,
+	<DropdownWidget />,
 	document.getElementById('app')
 ); 

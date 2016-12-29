@@ -8200,13 +8200,13 @@
 
 	var _reactDom = __webpack_require__(329);
 
+	var _dropdownWidget = __webpack_require__(475);
+
+	var _dropdownWidget2 = _interopRequireDefault(_dropdownWidget);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	(0, _reactDom.render)(_react2.default.createElement(
-		'h1',
-		null,
-		'Hello World!'
-	), document.getElementById('app'));
+	(0, _reactDom.render)(_react2.default.createElement(_dropdownWidget2.default, null), document.getElementById('app'));
 
 /***/ },
 /* 299 */
@@ -29434,6 +29434,86 @@
 
 	module.exports = ReactDOMInvalidARIAHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(294)))
+
+/***/ },
+/* 475 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(299);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var DropdownWidget = function (_React$Component) {
+	    _inherits(DropdownWidget, _React$Component);
+
+	    function DropdownWidget() {
+	        _classCallCheck(this, DropdownWidget);
+
+	        var _this = _possibleConstructorReturn(this, (DropdownWidget.__proto__ || Object.getPrototypeOf(DropdownWidget)).call(this));
+
+	        _this.state = { value: 'lime' };
+
+	        _this._handleSelectionChange = _this._handleSelectionChange.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(DropdownWidget, [{
+	        key: '_handleSelectionChange',
+	        value: function _handleSelectionChange(event) {
+	            if (event.target instanceof HTMLSelectElement) {
+	                this.setState({ value: event.target.value });
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'select',
+	                { value: this.state.value, onChange: this._handleSelectionChange },
+	                _react2.default.createElement(
+	                    'option',
+	                    { value: 'grapefruit' },
+	                    'Grapefruit'
+	                ),
+	                _react2.default.createElement(
+	                    'option',
+	                    { value: 'lime' },
+	                    'Lime'
+	                ),
+	                _react2.default.createElement(
+	                    'option',
+	                    { value: 'coconut' },
+	                    'Coconut'
+	                ),
+	                _react2.default.createElement(
+	                    'option',
+	                    { value: 'mango' },
+	                    'Mango'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return DropdownWidget;
+	}(_react2.default.Component);
+
+	exports.default = DropdownWidget;
 
 /***/ }
 /******/ ]);
