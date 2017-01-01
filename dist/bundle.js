@@ -8206,7 +8206,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	(0, _reactDom.render)(_react2.default.createElement(_dropdownWidget2.default, null), document.getElementById('app'));
+	(0, _reactDom.render)(_react2.default.createElement(_dropdownWidget2.default, { data: ['grapefruit', 'sexyBananana', 'coconut', 'mango'] }), document.getElementById('app'));
 
 /***/ },
 /* 299 */
@@ -29462,10 +29462,10 @@
 	var DropdownWidget = function (_React$Component) {
 	    _inherits(DropdownWidget, _React$Component);
 
-	    function DropdownWidget() {
+	    function DropdownWidget(props) {
 	        _classCallCheck(this, DropdownWidget);
 
-	        var _this = _possibleConstructorReturn(this, (DropdownWidget.__proto__ || Object.getPrototypeOf(DropdownWidget)).call(this));
+	        var _this = _possibleConstructorReturn(this, (DropdownWidget.__proto__ || Object.getPrototypeOf(DropdownWidget)).call(this, props));
 
 	        _this.state = { value: 'lime' };
 
@@ -29486,32 +29486,23 @@
 	            return _react2.default.createElement(
 	                'select',
 	                { value: this.state.value, onChange: this._handleSelectionChange },
-	                _react2.default.createElement(
-	                    'option',
-	                    { value: 'grapefruit' },
-	                    'Grapefruit'
-	                ),
-	                _react2.default.createElement(
-	                    'option',
-	                    { value: 'lime' },
-	                    'Lime'
-	                ),
-	                _react2.default.createElement(
-	                    'option',
-	                    { value: 'coconut' },
-	                    'Coconut'
-	                ),
-	                _react2.default.createElement(
-	                    'option',
-	                    { value: 'mango' },
-	                    'Mango'
-	                )
+	                this.props.data.map(function (value) {
+	                    return _react2.default.createElement(
+	                        'option',
+	                        { key: value, value: value },
+	                        value
+	                    );
+	                })
 	            );
 	        }
 	    }]);
 
 	    return DropdownWidget;
 	}(_react2.default.Component);
+
+	DropdownWidget.propTypes = {
+	    data: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.string).isRequired
+	};
 
 	exports.default = DropdownWidget;
 

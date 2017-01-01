@@ -5,6 +5,6 @@ import { render } from 'react-dom';
 import DropdownWidget from './dropdown-widget';
 
 render(
-	<DropdownWidget />,
+	<DropdownWidget data={[ 'grapefruit', 'banana', 'coconut', 'mango' ]} />,
 	document.getElementById('app')
 ); 

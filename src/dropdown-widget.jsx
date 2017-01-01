@@ -2,17 +2,22 @@
 
 import React from 'react';
 
+type DropdownWidgetPropType = {
+    data: Array<string>
+};
+
 type DropdownWidgetStateType = {
     value: string
 };
 
-class DropdownWidget extends React.Component<void, any, DropdownWidgetStateType> {
+class DropdownWidget extends React.Component<void, DropdownWidgetPropType, DropdownWidgetStateType> {
+    props: DropdownWidgetPropType;
     state: DropdownWidgetStateType;
 
     _handleSelectionChange: (event: SyntheticEvent) => void;
 
-    constructor(): void {
-        super();
+    constructor(props: DropdownWidgetPropType): void {
+        super(props);
 
         this.state = { value: 'lime' };
 
@@ -28,13 +33,18 @@ class DropdownWidget extends React.Component<void, any, DropdownWidgetStateType>
     render() {
         return (
             <select value={this.state.value} onChange={this._handleSelectionChange}>
-                <option value="grapefruit">Grapefruit</option>
-                <option value="lime">Lime</option>
-                <option value="coconut">Coconut</option>
-                <option value="mango">Mango</option>
+                {this.props.data.map((value) => {
+                    return (
+                        <option key={value} value={value}>{value}</option>
+                    );
+                })}
             </select>
         );
     }
 }
+
+DropdownWidget.propTypes = {
+    data: React.PropTypes.arrayOf(React.PropTypes.string).isRequired
+};
 
 export default DropdownWidget;
