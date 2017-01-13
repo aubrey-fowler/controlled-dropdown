@@ -8206,7 +8206,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	(0, _reactDom.render)(_react2.default.createElement(_dropdownWidget2.default, { data: ['grapefruit', 'sexyBananana', 'coconut', 'mango'] }), document.getElementById('app'));
+	(0, _reactDom.render)(_react2.default.createElement(_dropdownWidget2.default, { data: ['grapefruit', 'banana', 'coconut', 'mango'] }), document.getElementById('app'));
 
 /***/ },
 /* 299 */
