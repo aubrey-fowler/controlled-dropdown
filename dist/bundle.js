@@ -29485,7 +29485,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'select',
-	                { value: this.state.value, onChange: this._handleSelectionChange },
+	                { value: this.state.value, onChange: this._handleSelectionChange, size: this.props.size },
 	                this.props.data.map(function (value) {
 	                    return _react2.default.createElement(
 	                        'option',
@@ -29501,7 +29501,12 @@
 	}(_react2.default.Component);
 
 	DropdownWidget.propTypes = {
-	    data: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.string).isRequired
+	    data: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.string).isRequired,
+	    size: _react2.default.PropTypes.number
+	};
+
+	DropdownWidget.defaultProps = {
+	    size: 0
 	};
 
 	exports.default = DropdownWidget;

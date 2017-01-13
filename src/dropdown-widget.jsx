@@ -2,7 +2,11 @@
 
 import React from 'react';
 
-type DropdownWidgetPropType = {
+type DropdownWidgetDefaultPropType = {
+    size: number
+};
+
+type DropdownWidgetPropType = DropdownWidgetDefaultPropType & {
     data: Array<string>
 };
 
@@ -10,7 +14,8 @@ type DropdownWidgetStateType = {
     value: string
 };
 
-class DropdownWidget extends React.Component<void, DropdownWidgetPropType, DropdownWidgetStateType> {
+class DropdownWidget extends React.Component<DropdownWidgetDefaultPropType, DropdownWidgetPropType, DropdownWidgetStateType> {
+    static defaultProps: DropdownWidgetDefaultPropType;
     props: DropdownWidgetPropType;
     state: DropdownWidgetStateType;
 
@@ -32,7 +37,7 @@ class DropdownWidget extends React.Component<void, DropdownWidgetPropType, Dropd
 
     render() {
         return (
-            <select value={this.state.value} onChange={this._handleSelectionChange}>
+            <select value={this.state.value} onChange={this._handleSelectionChange} size={this.props.size}>
                 {this.props.data.map((value) => {
                     return (
                         <option key={value} value={value}>{value}</option>
@@ -44,7 +49,12 @@ class DropdownWidget extends React.Component<void, DropdownWidgetPropType, Dropd
 }
 
 DropdownWidget.propTypes = {
-    data: React.PropTypes.arrayOf(React.PropTypes.string).isRequired
+    data: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+    size: React.PropTypes.number
+};
+
+DropdownWidget.defaultProps = {
+    size: 0
 };
 
 export default DropdownWidget;
